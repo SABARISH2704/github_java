@@ -1,20 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: grafana
   labels:
-    app: hello-world
+    app: grafana
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: grafana
   template:
     metadata:
       labels:
-        app: hello-world
+        app: grafana
     spec:
       containers:
-        - name: hello-world
-          image: hello-world:latest
+        - name: grafana
+          image: grafana/grafana:latest
+          ports:
+            - containerPort: 3000
           imagePullPolicy: IfNotPresent
+
+
